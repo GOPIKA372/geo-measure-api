@@ -115,16 +115,16 @@ transform -> shapely `area` / `length` (polygon holes are subtracted; Multi* geo
 - **Partial failure tolerance:** per-feature errors are recorded, while file-level problems return 4xx.
 
 ## Learning
-
-- Why degrees can't be used for area/length, and how UTM zones, UPS and equal-area projections trade off distortion.
-- How Shapefiles are really multi-file bundles (`.shp/.shx/.dbf/.prj`), and the KML structure
-  (Placemark/MultiGeometry, `lon,lat,alt` ordering).
-- Verifying numeric code against an independent reference (geodesic) rather than eyeballing results.
-
+-Learned why geographic coordinates in degrees should not be directly used for area and length calculations, and how projected CRS such as UTM can be used for measurements.
+-Learned how Shapefiles work as a group of files such as .shp, .shx, .dbf, and .prj, and how KML stores geographic features and coordinates.
+-Learned how to validate measurement results by comparing the calculated values with an independent reference.
+-Learned how to test a GIS API using both KML and Shapefile ZIP files.
+-Improved my understanding of FastAPI, Git, GitHub, and automated testing while developing the project.
 ## Future Scope
-
-- Background processing (Celery/RQ + Redis) with progress for very large files; streaming parsers.
-- PostgreSQL/PostGIS, Alembic migrations, auth and per-user file ownership, file deletion/expiry.
-- More formats (GeoJSON, KMZ, GeoPackage) and geometry types (GeometryCollection).
-- Geodesic cross-check field, 3D (Z) length, and CSV/GeoJSON export of results.
-- Rate limiting, structured logging, CI (GitHub Actions) running tests and linters.
+-Add background processing and progress tracking for very large GIS files.
+-Use PostgreSQL/PostGIS for storing and querying spatial data.
+-Add authentication and user-specific file management.
+-Support additional formats such as GeoJSON, KMZ, and GeoPackage.
+-Add support for more geometry types and 3D measurements.
+-Provide export options such as CSV and GeoJSON.
+-Add rate limiting, structured logging, and GitHub Actions for automated testing and code quality checks.
